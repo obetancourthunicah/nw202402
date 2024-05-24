@@ -12,6 +12,8 @@ $txtSubstituciones = "";
 $invertido = false;
 $resultado = "";
 
+
+
 if (isset($_POST["btnGenerar"])) {
     $numeroCuenta = $_POST["numeroCuenta"];
     $txtSubstituciones = $_POST["txtSubstituciones"];
@@ -24,6 +26,8 @@ if (isset($_POST["btnGenerar"])) {
         $invertido
     );
 }
+
+$cuentasHistoricas = obtenerCuentasGeneradas();
 
 ?>
 
@@ -54,6 +58,32 @@ if (isset($_POST["btnGenerar"])) {
     <?php if ($resultado != "") { ?>
         <h2>Resultado</h2>
         <p><?php echo $resultado; ?></p>
+    <?php } ?>
+    <hr />
+    <?php if (count($cuentasHistoricas) > 0) { ?>
+        <h2>Cuentas Generadas</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Número de Cuenta</th>
+                    <th>Substituciones</th>
+                    <th>Invertido</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($cuentasHistoricas as $cuenta) { ?>
+                    <tr>
+                        <td><?php echo $cuenta["fecha"]; ?></td>
+                        <td><?php echo $cuenta["numeroCuenta"]; ?></td>
+                        <td><?php echo $cuenta["txtSubstituciones"]; ?></td>
+                        <td><?php echo $cuenta["invertido"] ? "Si" : "No"; ?></td>
+                        <td><?php echo $cuenta["resultado"]; ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     <?php } ?>
 </body>
 
