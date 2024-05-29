@@ -1,0 +1,18 @@
+{
+    "name": "uch/hotel",
+    "description": "Reservacion de Habitación de Hotel Orientado a Objetos POO Academico",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Uch\\Hotel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Orlando J Betancourth",
+            "email": "obetancourthunicah@gmail.com"
+        }
+    ],
+    "require": {}
+}
