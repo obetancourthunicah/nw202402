@@ -2,7 +2,7 @@
 
 namespace Uch\Hotel;
 
-class Hotel
+class Habitacion
 {
     private $codigo;
     private $descripcion;
@@ -43,5 +43,16 @@ class Hotel
     public function toJson()
     {
         return json_encode($this->toAssocArray());
+    }
+
+    public function fromAssocArray($array)
+    {
+        $this->codigo = $array["codigo"];
+        $this->descripcion = $array["descripcion"];
+    }
+
+    public function fromJson($json)
+    {
+        $this->fromAssocArray(json_decode($json, true));
     }
 }
